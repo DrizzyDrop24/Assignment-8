@@ -1,1 +1,12 @@
+1. What is faster to find an answer given the same graph, same start node, and same goal node: breadth-first search, depth-first search, or "it depends"? Explain why.
+It depends. Sometimes BFS finds the goal faster because it checks nearby nodes first. Other times DFS gets lucky and goes straight toward the goal. Which one is faster depends on where the goal is in the graph.
 
+2. What is the worst case (Big-O) runtime of breadth-first search? Explain why.
+O(V + E)
+This is because BFS might have to visit every node (V) and look at every connection or edge (E) before it finds the goal.
+
+3. Why would an adjacency matrix be less memory efficient than an adjacency list for storing a social graph of friends, like part of Facebook?
+Most people on Facebook are not friends with most other users. An adjacency matrix stores space for every possible friendship, which wastes a lot of memory. An adjacency list only stores actual friendships, so it uses much less memory.
+
+4. Give an example of depth-first search in the real world (not on a computer).
+Looking for something in a house by fully searching one room before moving to the next room is an example of depth-first search. You go as far as you can in one area before backtracking and trying another area.
