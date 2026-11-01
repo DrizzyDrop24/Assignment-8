@@ -33,7 +33,7 @@ class Graph:
     # and  *to* is one of its neighbors
     # Return True only if both criteria are true
     def edge_exists(self, from_, to):
-        return from_in self._adjacency_list and to in
+        return from_ in self._adjacency_list and to in
     self._adjacency_list[from_]
     
     # Work backwards to find a path from your dfs()
