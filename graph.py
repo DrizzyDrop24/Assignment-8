@@ -56,8 +56,7 @@ class Graph:
         # but also how we got to it
         # explored[a] = b means we got to a from b
         # we market start as coming from start as a sentinel
-        explored = {}
-        explored[start] = start
+        explored = {start: start}
         # frontier = ...
         # 1. Create your frontier with the right abstract data type
         # that we imported above
@@ -65,18 +64,45 @@ class Graph:
         # 3. Loop while the frontier is not empty
         # 4. pop current off the frontier
         # 5. check if current is the goal and if it is, return the path to it
-        # 6. Look through the neighbors of current, only visiting the ones that 
+        # 6. Look through the neighbors of current, only visiting the ones that
         # are not already explored
         # 7. Mark how you got to them and add them to the frontier
         # 8. Return None if you search through everything and never
         # find the goal
-        # YOUR CODE HERE
-    
+        frontier = Stack()
+        frontier.push(start)
+
+        while not frontier.is_empty:
+            current = frontier.pop()
+
+            if current == goal:
+                return self._path_map_to_path(explored, goal)
+
+            for neighbor in self.neighbors(current):
+                if neighbor not in explored:
+                    explored[neighbor] = current
+                    frontier.push(neighbor)
+
+        return None
+
     def bfs(self, start, goal):
-        # Copy and paste your code from dfs() making the one 
-        # important one-line change to it to make it bfs()
-        # YOUR CODE HERE
-        pass
+        explored = {start: start}
+
+        frontier = Queue()
+        frontier.push(start)
+
+        while not frontier.is_empty:
+            current = frontier.pop()
+
+            if current == goal:
+                return self._path_map_to_path(explored, goal)
+
+            for neighbor in self.neighbors(current):
+                if neighbor not in explored:
+                    explored[neighbor] = current
+                    frontier.push(neighbor)
+
+        return None
     
     def print_explored(self, explored):
         for k, v in explored.items():
