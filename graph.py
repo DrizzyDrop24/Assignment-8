@@ -5,7 +5,6 @@
 from stack import Stack
 from que import Queue
 
-
 class Graph:
     def __init__(self):
         self._adjacency_list = {}
@@ -34,8 +33,8 @@ class Graph:
     # and  *to* is one of its neighbors
     # Return True only if both criteria are true
     def edge_exists(self, from_, to):
-        # YOUR CODE HERE
-        pass
+        return from_in self._adjacency_list and to in
+    self._adjacency_list[from_]
     
     # Work backwards to find a path from your dfs()
     # or bfs() goal using the explored dictionary as
